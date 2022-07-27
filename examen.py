@@ -124,23 +124,15 @@ def comprarR():
 def cuComprar():
     while True:
         x = input("Cuantos asientos desea comprar (Maximo 3): ")
-        if x.isnumeric() == True:
-            if int(x) == 3:
+        if x.isnumeric() == True and int(x) <= 3:
+            contador = 0
+            while contador <= (2):         # Debe ser un numero mnenor al limite
+                contador = contador + 1
                 comprar()
-                comprar()
-                comprar()
-                return
-            elif int(x) == 2:
-                comprar()
-                comprar()
-                return
-            elif int(x) == 1:
-                comprar()
-                return
-            else:
+            return
+        else:
                 print("Error")
-
-
+            
 
 def comprar():
     for x in range(len(cine)):
