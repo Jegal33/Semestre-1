@@ -143,89 +143,40 @@ def comprar():
         if res.isnumeric() == True :          
             if int(res) not in entradas: 
                 entradas.append(int(res))
+                
                 if int(res) >= 1 and int(res)<= 10:                   
                     cine[0] = cine[0].replace(res,'X')
                     e3.cantidad-=1  
                     i3.ventas += 1
                     i3.ganancia +=(1*e3.precio)
-                    print("Se ha comprado el asiento ",res)
-                    input()
-                    return cine[0]
+                   
                 elif int(res) >= 11 and int(res)<= 20:
                     cine[1] = cine[1].replace(res,'XX')
                     e3.cantidad-=1  
                     i3.ventas += 1
                     i3.ganancia +=(1*e3.precio)
-                    print("Se ha comprado el asiento ",res)
-                    input()
-                    return cine[1]
-                elif int(res) >= 21 and int(res)<= 30:
-                    cine[2] = cine[2].replace(res,'XX')
-                    e2.cantidad-=1  
-                    i2.ventas += 1
-                    i2.ganancia +=(1*e2.precio)
-                    print("Se ha comprado el asiento ",res)
-                    input()
-                    return cine[2]
-                elif int(res) >= 31 and int(res)<= 40:
-                    cine[3] = cine[3].replace(res,'XX')
-                    e2.cantidad-=1  
-                    i2.ventas += 1
-                    i2.ganancia +=(1*e2.precio)
-                    print("Se ha comprado el asiento ",res)
-                    input()
-                    return cine[3]
-                elif int(res) >= 41 and int(res)<= 50:
-                    cine[4] = cine[4].replace(res,'XX')
-                    e2.cantidad-=1  
-                    i2.ventas += 1
-                    i2.ganancia +=(1*e2.precio)
-                    print("Se ha comprado el asiento ",res)
-                    input()
-                    return cine[4]
-                elif int(res) >= 51 and int(res)<= 60:
-                    cine[5] = cine[5].replace(res,'XX')
-                    e1.cantidad-=1  
-                    i1.ventas += 1
-                    i1.ganancia +=(1*e1.precio)
-                    print("Se ha comprado el asiento ",res)
-                    input()
-                    return cine[5]
-                elif int(res) >= 61 and int(res)<= 70:
-                    cine[6] = cine[6].replace(res,'XX')
-                    e1.cantidad-=1  
-                    i1.ventas += 1
-                    i1.ganancia +=(1*e1.precio)
-                    print("Se ha comprado el asiento ",res)
-                    input()
-                    return cine[6]
-                elif int(res) >= 71 and int(res)<= 80:
-                    cine[7] = cine[7].replace(res,'XX')
-                    e1.cantidad-=1  
-                    i1.ventas += 1
-                    i1.ganancia +=(1*e1.precio)
-                    print("Se ha comprado el asiento ",res)
-                    input()
-                    return cine[7]
-                elif int(res) >= 81 and int(res)<= 90:
-                    cine[8] = cine[8].replace(res,'XX')
-                    e1.cantidad-=1  
-                    i1.ventas += 1
-                    i1.ganancia +=(1*e1.precio)
-                    print("Se ha comprado el asiento ",res)
-                    input()
-                    return cine[8]
-                elif int(res) >= 91 and int(res)<= 100:
-                    cine[9] = cine[9].replace(res,'XX')
-                    e1.cantidad-=1  
-                    i1.ventas += 1
-                    i1.ganancia +=(1*e1.precio)
-                    print("Se ha comprado el asiento ",res)
-                    input()
-                    return cine[9]    
                     
+                elif int(res) >= 21 and int(res)<= 50:
+                    for x in  range(2,5):
+                        cine[x] = cine[x].replace(res,'XX')
+                    e2.cantidad-=1  
+                    i2.ventas += 1
+                    i2.ganancia +=(1*e2.precio)
+                    
+                elif int(res) >= 51 and int(res)<= 100:
+                    for x in  range(5,10):
+                        cine[x] = cine[x].replace(res,'XX')
+                    e1.cantidad-=1  
+                    i1.ventas += 1
+                    i1.ganancia +=(1*e1.precio)
+                
                 else:
                     input("Asiento no encontrado")
+                    
+                print("Se ha comprado el asiento ",res)
+                input()
+                return cine
+       
             else:
                     input("No está disponible")
         else:
@@ -267,7 +218,7 @@ def asistentes():
 def informe_arreglo():
     limpiarPantalla()             
     input(f"""
-                Ingresos por venta de Acientos
+                Ingresos por venta de Asientos
 
 
         
@@ -313,7 +264,7 @@ def validaRut():
 def validaNDueño():
     while True:
         x = input("Ingrese el nombre: ")
-        if len(x) >= 3 and len(x) <= 15 and x.isalpha() == True:          
+        if len(x) >= 2 and len(x) <= 15 and x.isalpha() == True:          
             return x.capitalize()
         else:
             print()
